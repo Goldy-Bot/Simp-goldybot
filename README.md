@@ -9,7 +9,8 @@
 
 <br clear="left"/>
 <br clear="left"/>
-<img align="center" src="https://c.tenor.com/zx8YPPi8HbgAAAAd/pewdiepie-simp-pewdiepie.gif" width="500">
+<img align="right" src="https://c.tenor.com/6XbAaRXCKKYAAAAC/arthur-simp.gif" width="280">
+<img align="left" src="https://c.tenor.com/zx8YPPi8HbgAAAAd/pewdiepie-simp-pewdiepie.gif" width="500">
 
 <br clear="left"/>
 <br clear="left"/>
