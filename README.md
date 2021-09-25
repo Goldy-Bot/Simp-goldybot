@@ -15,7 +15,7 @@
 <br clear="left"/>
 <br clear="left"/>
 
-- [ ] ``!simp`` command.
+- [x] ``!simp`` command.
 - [ ] ``!simpable {on/off}`` command.
 
 ## What is it?
