@@ -16,7 +16,7 @@
 <br clear="left"/>
 
 - [x] ``!simp`` command.
-- [ ] ``!simpable {on/off}`` command.
+- [x] ``!simpable {on/off}`` command.
 
 ## What is it?
 This extenstion is Home to the famous SIMP command. *Currrently in development as of now...*
