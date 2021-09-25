@@ -4,7 +4,6 @@ class footer():
 class simpable():
     their_not_simpable = "**💛 {}, their not simpable!**"
 
-
     toggle_on = "**💚 {}, member's are now able to expose you for simping. (Warning: You will be pinged, many times. 😉)**"
     toggle_off = "**💛 {}, no one can expose you for simping now. Good choice, this is the safer option.**"
 

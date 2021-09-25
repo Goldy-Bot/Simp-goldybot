@@ -7,7 +7,7 @@ import importlib
 
 from goldy_func import *
 from goldy_utility import *
-import config.msg as msg
+import utility.msg as msg
 
 from cogs.database import database
 
