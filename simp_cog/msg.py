@@ -14,6 +14,8 @@ class simp():
     class failed():
         not_simpable = simpable.their_not_simpable
 
+        member_not_found = "**❤️ {}, member not found!**"
+
     class embed():
         dm_context = """
         **YOUR A SIMP!!!**

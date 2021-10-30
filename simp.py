@@ -5,9 +5,9 @@ import datetime
 import random
 import importlib
 
-from goldy_func import *
-from goldy_utility import *
-import utility.msg as msg
+from src.goldy_func import *
+from src.goldy_utility import *
+import src.utility.msg as msg
 
 from cogs.database import database
 
@@ -63,7 +63,8 @@ class simp(commands.Cog, name="😘Simp"):
         if isinstance(error, commands.CommandOnCooldown):
             await ctx.author.send(msg.error.cooldown.format(datetime.timedelta(seconds=round(error.retry_after))))
         if isinstance(error, commands.MemberNotFound):
-            await ctx.send(msg.error.member_not_found.format(ctx.author.mention))
+            ctx.command.reset_cooldown(ctx)
+            await ctx.send(simp_msg.simp.failed.member_not_found.format(ctx.author.mention))
         else:
             await goldy.log_error(ctx, self.client, error, f"{cog_name}.simp")
 
@@ -73,7 +74,6 @@ class simp(commands.Cog, name="😘Simp"):
         if await can_the_command_run(ctx, cog_name) == True:
             if not option == None:
                 is_done = await simp.member.toggle(ctx, option.lower())
-                print(is_done)
 
                 if is_done[0] == True:
                     if is_done[1] == "on":
@@ -96,8 +96,6 @@ class simp(commands.Cog, name="😘Simp"):
     async def command_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
             await ctx.author.send(msg.error.cooldown.format(datetime.timedelta(seconds=round(error.retry_after))))
-        if isinstance(error, commands.MemberNotFound):
-            await ctx.send(msg.error.member_not_found.format(ctx.author.mention))
         else:
             await goldy.log_error(ctx, self.client, error, f"{cog_name}.simpable")
 
@@ -166,10 +164,10 @@ class simp(commands.Cog, name="😘Simp"):
         async def update(): #Checks if "simp_images.json" is in config.
             json_file_name = "simp_images.json"
 
-            if not json_file_name in os.listdir("config\\"):
+            if not json_file_name in os.listdir("config/"):
                 #Create and write to level_up_msgs.json
-                simp_images_file = open(f"config\\{json_file_name}", "x")
-                simp_images_file = open(f"config\\{json_file_name}", "w")
+                simp_images_file = open(f"config/{json_file_name}", "x")
+                simp_images_file = open(f"config/{json_file_name}", "w")
                 
                 json.dump({"1" : {"name": "Gawr Gura", 
                 "url" : "https://i1.sndcdn.com/artworks-pNNuvE1yQkD4BByH-DMCDdw-t500x500.jpg"}}, simp_images_file) #Dumping the example layout in the json file.
@@ -179,14 +177,14 @@ class simp(commands.Cog, name="😘Simp"):
             json_file_name = "simp_images.json"
 
             try:
-                f = open (f'config\\{json_file_name}', "r", encoding="utf8")
+                f = open (f'config/{json_file_name}', "r", encoding="utf8")
                 simp_images_normal = json.loads(f.read())
 
             except FileNotFoundError as e:
                 print_and_log("warn", f"'{json_file_name}' was not found. Running update function and trying again. >>> {e}")
                 await simp.random_simp_image.update()
 
-                f = open (f'config\\{json_file_name}', "r", encoding="utf8")
+                f = open (f'config/{json_file_name}', "r", encoding="utf8")
                 simp_images_normal = json.loads(f.read())
 
 
