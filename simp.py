@@ -62,7 +62,7 @@ class simp(commands.Cog, name="😘Simp"):
     async def command_error(self, ctx, error):
         if isinstance(error, commands.CommandOnCooldown):
             await ctx.author.send(msg.error.cooldown.format(datetime.timedelta(seconds=round(error.retry_after))))
-        if isinstance(error, commands.MemberNotFound):
+        if isinstance(error, (commands.MemberNotFound, commands.ExpectedClosingQuoteError)):
             ctx.command.reset_cooldown(ctx)
             await ctx.send(simp_msg.simp.failed.member_not_found.format(ctx.author.mention))
         else:
